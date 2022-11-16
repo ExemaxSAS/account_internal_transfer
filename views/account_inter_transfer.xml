@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <record id="account_internal_transfer_add_category_tree" model="ir.ui.view">
+        <field name="name">account.internal.transfer.menu.tree</field>
+        <field name="model">account.inter.transfer</field>
+        <field name="arch" type="xml">
+           <tree string="Tree Name">
+                <field name="date"/>
+                <field name="diario"/>
+                <field name="diario_destino"/>
+                <field name="amount"/>
+            </tree> 
+        </field>   
+   </record> 
+
+   <record id="account_internal_transfer_add_category_form" model="ir.ui.view">
+        <field name="name">account.internal.transfer.form</field>
+        <field name="model">account.inter.transfer</field>
+        <field name="arch" type="xml">
+        <form string="Form View Name">
+        <sheet>
+          <group>
+               <group>
+               
+                  <field name="date" readonly="1" default="Today"/>
+                  <field name="diario"/>
+                   <field name="diario_destino"/>
+                  <field name="amount"/>
+                </group>
+                <group>
+                <field name="currency_id"/>
+                </group>  
+        </group>  
+        </sheet>    
+        </form>
+        </field>   
+   </record>
+
+    <record id="action_account_transfer" model= 'ir.actions.act_window'>
+     <field name="name">Transferencia de cuenta</field>
+     <field name="res_model">account.inter.transfer</field>
+     
+     <field name="view_mode">tree,form</field>
+   </record>
+   
+   <menuitem
+            action="action_account_transfer"    
+            id="action_action_account_transfer"
+            parent="account.menu_finance"
+            name="Transferencia de cuenta"
+            sequence="22"/>
+   </odoo>
