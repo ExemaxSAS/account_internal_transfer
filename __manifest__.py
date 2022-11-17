@@ -14,7 +14,7 @@
     Modulo para visualización de vistas listas y formulario de Account.
     ''',
     'data': [
+        'security/ir.model.access.csv',
         'views/account_inter_transfer.xml',
-       
     ],
 }
