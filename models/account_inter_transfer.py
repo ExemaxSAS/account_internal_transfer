@@ -14,12 +14,12 @@ class Account_inter_transfer(models.Model):
             'currency_id': self.currency_id.id,
             'company_id': self.company_id.id,
             'line_ids': [(0, 0, {
-                 'account_id': self.diario.default_account_id.id,
+                 'account_id': self.company_id.account_journal_payment_credit_account_id.id,
                  'partner_id': self.company_id.partner_id.id,
                  'currency_id': self.currency_id.id,
                  'credit': self.amount}),
                  (0, 0, {
-                 'account_id': self.diario.suspense_account_id.id,
+                 'account_id': self.company_id.transfer_account_id.id,
                  'partner_id': self.company_id.partner_id.id,
                  'currency_id': self.currency_id.id,
                  'debit': self.amount})]
@@ -29,12 +29,12 @@ class Account_inter_transfer(models.Model):
             'currency_id': self.currency_id.id,
             'company_id': self.company_id.id,
             'line_ids': [(0, 0, {
-                 'account_id': self.diario_destino.suspense_account_id.id,
+                 'account_id': self.company_id.transfer_account_id.id,
                  'partner_id': self.company_id.partner_id.id,
                  'currency_id': self.currency_id.id,
                  'credit': self.amount}),
                  (0, 0, {
-                 'account_id': self.diario_destino.default_account_id.id,
+                 'account_id': self.company_id.account_journal_payment_debit_account_id.id,
                  'partner_id': self.company_id.partner_id.id,
                  'currency_id': self.currency_id.id,
                  'debit': self.amount})]
